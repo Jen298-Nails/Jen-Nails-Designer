@@ -7,69 +7,1039 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{--pink:#d72d77;--soft:#fff0f6;--line:#ead1dc;--text:#382630;--muted:#796670}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--text);background:#fff9fc}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:var(--text);background:#fff9fc}
 header{text-align:center;padding:35px 18px 25px;background:#fff}
-.logo{font-family:Georgia,serif;font-size:43px;letter-spacing:5px;font-weight:700;color:#222}.sub{font-size:12px;letter-spacing:6px;color:var(--pink);font-weight:700}
-.wrap{width:min(940px,92%);margin:22px auto 60px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;margin:16px 0;box-shadow:0 8px 30px #7b36500d}
-h1,h2{margin:0 0 14px}h1{font-size:27px}h2{font-size:20px}.days{display:flex;gap:8px;overflow:auto}.day{min-width:86px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:11px 7px;cursor:pointer}.day.active{background:var(--pink);color:#fff}
-.times{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:9px;margin-top:14px}.time{padding:13px;border:1px solid var(--line);background:#fff;border-radius:13px;font-weight:700;cursor:pointer}.time.selected{border:2px solid var(--pink);background:var(--soft)}.time.busy{background:#eee;color:#aaa;text-decoration:line-through;cursor:not-allowed}
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}.svc input{display:none}.svc label{display:block;border:1px solid var(--line);padding:13px;border-radius:13px;cursor:pointer}.svc input:checked+label{border:2px solid var(--pink);background:var(--soft)}.svc b{display:block}.svc small{color:var(--muted)}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}input{width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;font-size:16px}.btn{border:0;border-radius:13px;padding:14px 18px;font-weight:800;cursor:pointer}.primary{background:var(--pink);color:#fff;width:100%}.primary:disabled{opacity:.45}.ghost{background:#fff;border:1px solid var(--line)}
-.summary{background:var(--soft);padding:15px;border-radius:14px;line-height:1.6}.note{font-size:13px;color:var(--muted)}#adminView{display:none}.adminRow{display:flex;justify-content:space-between;gap:10px;padding:11px;border:1px solid var(--line);border-radius:12px;margin:7px 0}.error{color:#a61e4d;font-size:13px}
-@media(max-width:620px){.fields{grid-template-columns:1fr}.logo{font-size:34px}}
+.logo{font-family:Georgia,serif;font-size:43px;letter-spacing:5px;font-weight:700;color:#222}
+.sub{font-size:12px;letter-spacing:6px;color:var(--pink);font-weight:700}
+.wrap{width:min(940px,92%);margin:22px auto 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px;margin:16px 0;box-shadow:0 8px 30px #7b36500d}
+h1,h2{margin:0 0 14px}
+h1{font-size:27px}
+h2{font-size:20px}
+.days{display:flex;gap:8px;overflow:auto}
+.day{min-width:86px;border:1px solid var(--line);background:#fff;border-radius:14px;padding:11px 7px;cursor:pointer}
+.day.active{background:var(--pink);color:#fff}
+.times{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:9px;margin-top:14px}
+.time{padding:13px;border:1px solid var(--line);background:#fff;border-radius:13px;font-weight:700;cursor:pointer}
+.time.selected{border:2px solid var(--pink);background:var(--soft)}
+.time.busy{background:#eee;color:#aaa;text-decoration:line-through;cursor:not-allowed}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:9px}
+.svc input{display:none}
+.svc label{display:block;border:1px solid var(--line);padding:13px;border-radius:13px;cursor:pointer}
+.svc input:checked+label{border:2px solid var(--pink);background:var(--soft)}
+.svc b{display:block}
+.svc small{color:var(--muted)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input{width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;font-size:16px}
+.btn{border:0;border-radius:13px;padding:12px 14px;font-weight:800;cursor:pointer}
+.primary{background:var(--pink);color:#fff;width:100%}
+.primary:disabled{opacity:.45}
+.ghost{background:#fff;border:1px solid var(--line)}
+.danger{background:#fff0f0;color:#a61e4d;border:1px solid #edb7c9}
+.success{background:#f0fff7;color:#177245;border:1px solid #b9e4ca}
+.summary{background:var(--soft);padding:15px;border-radius:14px;line-height:1.6}
+.note{font-size:13px;color:var(--muted)}
+#adminView{display:none}
+.adminRow{padding:13px;border:1px solid var(--line);border-radius:14px;margin:8px 0}
+.adminTop{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.adminActions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.slotState{font-size:12px;font-weight:700}
+.closed{color:#a61e4d}
+.available{color:#177245}
+@media(max-width:620px){
+.fields{grid-template-columns:1fr}
+.logo{font-size:34px}
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">JEN NAILS</div><div class="sub">RESERVAS</div><p>Agenda tu turno de forma rápida y sencilla ✨</p></header>
+
+<header>
+<div class="logo">JEN NAILS</div>
+<div class="sub">RESERVAS</div>
+<p>Agenda tu turno de forma rápida y sencilla ✨</p>
+</header>
 
 <main class="wrap" id="publicView">
-<section class="card"><h1>Reserva tu turno</h1><div id="days" class="days"></div><div id="schedule"></div></section>
-<section class="card"><h2>Servicio</h2><div class="services">
-<div class="svc"><input id="s1" type="checkbox" value="Esmaltado semipermanente"><label for="s1"><b>Esmaltado semipermanente</b><small>≈ 1 hora</small></label></div>
-<div class="svc"><input id="s2" type="checkbox" value="Kapping Gel"><label for="s2"><b>Kapping Gel</b><small>≈ 1 h 30 min</small></label></div>
-<div class="svc"><input id="s3" type="checkbox" value="Soft Gel"><label for="s3"><b>Soft Gel</b><small>≈ 2 horas</small></label></div>
-<div class="svc"><input id="s4" type="checkbox" value="Uñas acrílicas"><label for="s4"><b>Uñas acrílicas</b><small>≈ 2 horas</small></label></div>
-<div class="svc"><input id="s5" type="checkbox" value="Uñas esculpidas"><label for="s5"><b>Uñas esculpidas</b><small>≈ 2 h 30 min</small></label></div>
-<div class="svc"><input id="s6" type="checkbox" value="Manicura completa"><label for="s6"><b>Manicura completa</b><small>≈ 1 hora</small></label></div>
-<div class="svc"><input id="s7" type="checkbox" value="Laminado de cejas"><label for="s7"><b>Laminado de cejas</b><small>≈ 1 hora</small></label></div>
-</div></section>
-<section class="card"><h2>Tus datos</h2><div class="fields"><input id="name" placeholder="Tu nombre"><input id="phone" placeholder="Tu teléfono"></div></section>
-<section class="card"><h2>Resumen</h2><div id="summary" class="summary">Selecciona día, hora y servicio.</div><br><button id="book" class="btn primary" disabled>Confirmar y abrir WhatsApp 💗</button><p class="note">La reserva se guarda y luego se abre WhatsApp con el mensaje preparado.</p></section>
+
+<section class="card">
+<h1>Reserva tu turno</h1>
+<div id="days" class="days"></div>
+<div id="schedule"></div>
+</section>
+
+<section class="card">
+<h2>Servicio</h2>
+
+<div class="services">
+
+<div class="svc">
+<input id="s1" type="checkbox" value="Esmaltado semipermanente">
+<label for="s1">
+<b>Esmaltado semipermanente</b>
+<small>≈ 1 hora</small>
+</label>
+</div>
+
+<div class="svc">
+<input id="s2" type="checkbox" value="Kapping Gel">
+<label for="s2">
+<b>Kapping Gel</b>
+<small>≈ 1 h 30 min</small>
+</label>
+</div>
+
+<div class="svc">
+<input id="s3" type="checkbox" value="Soft Gel">
+<label for="s3">
+<b>Soft Gel</b>
+<small>≈ 2 horas</small>
+</label>
+</div>
+
+<div class="svc">
+<input id="s4" type="checkbox" value="Uñas acrílicas">
+<label for="s4">
+<b>Uñas acrílicas</b>
+<small>≈ 2 horas</small>
+</label>
+</div>
+
+<div class="svc">
+<input id="s5" type="checkbox" value="Uñas esculpidas">
+<label for="s5">
+<b>Uñas esculpidas</b>
+<small>≈ 2 h 30 min</small>
+</label>
+</div>
+
+<div class="svc">
+<input id="s6" type="checkbox" value="Manicura completa">
+<label for="s6">
+<b>Manicura completa</b>
+<small>≈ 1 hora</small>
+</label>
+</div>
+
+<div class="svc">
+<input id="s7" type="checkbox" value="Laminado de cejas">
+<label for="s7">
+<b>Laminado de cejas</b>
+<small>≈ 1 hora</small>
+</label>
+</div>
+
+</div>
+</section>
+
+<section class="card">
+<h2>Tus datos</h2>
+<div class="fields">
+<input id="name" placeholder="Tu nombre">
+<input id="phone" placeholder="Tu teléfono">
+</div>
+</section>
+
+<section class="card">
+<h2>Resumen</h2>
+<div id="summary" class="summary">
+Selecciona día, hora y servicio.
+</div>
+<br>
+<button id="book" class="btn primary" disabled>
+Confirmar y abrir WhatsApp 💗
+</button>
+<p class="note">
+La reserva se guarda y luego se abre WhatsApp con el mensaje preparado.
+</p>
+</section>
+
 </main>
 
-<section class="wrap" id="adminView"><div class="card"><h1>Panel privado · Jen Nails</h1>
-<div id="adminLogin"><p class="note">Acceso exclusivo para cuentas autorizadas.</p><input id="adminEmail" type="email" placeholder="Correo autorizado"><br><br><button id="magic" class="btn primary">Enviar enlace de acceso</button><p id="adminMsg" class="note"></p></div>
-<div id="adminPanel" style="display:none"><p id="who" class="note"></p><input id="adminDate" type="date"><br><br><div id="adminBookings"></div><br><button id="logout" class="btn ghost">Cerrar sesión</button></div>
-</div></section>
+<section class="wrap" id="adminView">
+
+<div class="card">
+
+<h1>Panel privado · Jen Nails</h1>
+
+<div id="adminLogin">
+
+<p class="note">
+Acceso exclusivo para las dos cuentas autorizadas.
+</p>
+
+<input
+id="adminEmail"
+type="email"
+placeholder="Correo autorizado"
+>
+
+<br><br>
+
+<button id="magic" class="btn primary">
+Enviar enlace de acceso
+</button>
+
+<p id="adminMsg" class="note"></p>
+
+</div>
+
+<div id="adminPanel" style="display:none">
+
+<p id="who" class="note"></p>
+
+<input id="adminDate" type="date">
+
+<br><br>
+
+<div id="adminBookings"></div>
+
+<br>
+
+<button id="logout" class="btn ghost">
+Cerrar sesión
+</button>
+
+</div>
+
+</div>
+
+</section>
 
 <script>
-const SUPABASE_URL="https://mprwmukokgrkefyifznr.supabase.co";
-const SUPABASE_KEY="sb_publishable_vlYyz-iV08qxpi-HrO_TAg_nSnrOaDZ";
-const WA="595986170524";
-const ADMINS=["gayozonora@gmail.com","angelbaenarada@gmail.com"];
-const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-const hours={1:[["08:00","12:00"],["14:00","16:00"]],2:[["08:00","12:00"],["14:00","16:00"]],3:[["08:00","12:00"],["14:00","16:00"]],4:[["08:00","12:00"],["14:00","19:00"]],5:[["08:00","12:00"],["14:00","19:00"]],6:[["08:00","12:00"],["16:00","18:00"]]};
-const names=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];let day=null,time=null,booked=[];
-function pad(n){return String(n).padStart(2,"0")}
-function slots(d){if(!hours[d])return[];let o=[];for(const r of hours[d]){let [h,m]=r[0].split(":").map(Number),[eh,em]=r[1].split(":").map(Number);while(h*60+m<eh*60+em){o.push(`${pad(h)}:${pad(m)}`);m+=60;if(m>=60){h++;m-=60}}}return o}
-function fmtDate(d){return new Date(d+"T12:00:00").toLocaleDateString("es-CO",{weekday:"long",day:"numeric",month:"long"})}
-function selectedServices(){return [...document.querySelectorAll(".svc input:checked")].map(x=>x.value)}
-async function loadBooked(){if(day===null||day===0||!window.selectedDate)return;const{data}=await sb.from("bookings").select("booking_time,status").eq("booking_date",window.selectedDate).in("status",["confirmed","blocked"]);booked=(data||[]).map(x=>String(x.booking_time).slice(0,5));renderSchedule()}
-function renderDays(){const box=document.getElementById("days");box.innerHTML="";for(let i=0;i<7;i++){const b=document.createElement("button");b.className="day"+(i===day?" active":"");b.innerHTML=`<small>${names[i].slice(0,3).toUpperCase()}</small><br>${names[i]}`;b.onclick=()=>chooseDay(i);box.appendChild(b)}}
-function chooseDay(i){day=i;time=null;const now=new Date(),diff=(i-now.getDay()+7)%7,d=new Date(now);d.setDate(now.getDate()+diff);window.selectedDate=d.toISOString().slice(0,10);renderDays();renderSchedule();updateSummary();loadBooked()}
-function renderSchedule(){const box=document.getElementById("schedule");if(day===null){box.innerHTML='<p class="note">Selecciona un día.</p>';return}if(day===0){box.innerHTML='<p class="note"><b>Domingo · Turno exclusivo / VIP ✨</b><br>Consulta disponibilidad por WhatsApp.</p>';return}box.innerHTML='<div class="times"></div><p class="note">Turnos disponibles cada 1 hora.</p>';const grid=box.querySelector(".times");slots(day).forEach(t=>{const b=document.createElement("button");b.className="time"+(t===time?" selected":"")+(booked.includes(t)?" busy":"");b.textContent=t+(booked.includes(t)?" · Ocupado":"");b.disabled=booked.includes(t);b.onclick=()=>{time=t;renderSchedule();updateSummary()};grid.appendChild(b)})}
-function updateSummary(){const sv=selectedServices(),n=document.getElementById("name").value.trim();document.getElementById("summary").innerHTML=`<b>Día:</b> ${window.selectedDate?fmtDate(window.selectedDate):"—"}<br><b>Hora:</b> ${time||"—"}<br><b>Servicio:</b> ${sv.join(", ")||"—"}<br><b>Nombre:</b> ${n||"—"}`;document.getElementById("book").disabled=!(window.selectedDate&&time&&sv.length&&n)}
-document.querySelectorAll(".svc input").forEach(x=>x.onchange=updateSummary);document.getElementById("name").oninput=updateSummary;document.getElementById("phone").oninput=updateSummary;
-document.getElementById("book").onclick=async()=>{const sv=selectedServices(),n=document.getElementById("name").value.trim(),p=document.getElementById("phone").value.trim();const{error}=await sb.from("bookings").insert({booking_date:window.selectedDate,booking_time:time+":00",customer_name:n,customer_phone:p,service_ids:[],status:"confirmed"});if(error){if(error.code==="23505"){alert("Ese horario acaba de ser ocupado. Elige otro.");await loadBooked();return}alert("No se pudo guardar la reserva.");return}const msg=`Hola Jen Nails 💗%0A%0AQuiero agendar un turno.%0A📅 Día: ${fmtDate(window.selectedDate)}%0A🕐 Hora: ${time}%0A💅 Servicio(s): ${sv.join(", ")}%0A👤 Nombre: ${n}%0A📱 Teléfono: ${p||"No indicado"}`;location.href=`https://wa.me/${WA}?text=${msg}`};
 
-async function adminStart(){document.getElementById("publicView").style.display="none";document.getElementById("adminView").style.display="block";const{data}=await sb.auth.getUser();if(data.user&&ADMINS.includes((data.user.email||"").toLowerCase()))showAdmin(data.user)}
-async function showAdmin(user){document.getElementById("adminLogin").style.display="none";document.getElementById("adminPanel").style.display="block";document.getElementById("who").textContent="Sesión: "+user.email;document.getElementById("adminDate").value=new Date().toISOString().slice(0,10);loadAdmin()}
-document.getElementById("magic").onclick=async()=>{const email=document.getElementById("adminEmail").value.trim().toLowerCase();if(!ADMINS.includes(email)){document.getElementById("adminMsg").innerHTML='<span class="error">Ese correo no está autorizado.</span>';return}const{error}=await sb.auth.signInWithOtp({email,options:{emailRedirectTo:location.href.split("#")[0]+"#admin"}});document.getElementById("adminMsg").textContent=error?"No se pudo enviar el enlace.": "Revisa tu correo para abrir el panel."};
-document.getElementById("adminDate").onchange=loadAdmin;
-async function loadAdmin(){const d=document.getElementById("adminDate").value;if(!d)return;const{data,error}=await sb.from("bookings").select("id,booking_time,customer_name,customer_phone,status,created_at").eq("booking_date",d).order("booking_time");const box=document.getElementById("adminBookings");if(error){box.textContent="No se pudieron cargar las reservas.";return}box.innerHTML=data?.length?data.map(x=>`<div class="adminRow"><span><b>${String(x.booking_time).slice(0,5)}</b><br>${x.customer_name}<br><small>${x.customer_phone||""}</small></span><span>${x.status}</span></div>`).join(""):"No hay reservas para este día."}
-document.getElementById("logout").onclick=async()=>{await sb.auth.signOut();location.href=location.href.split("#")[0]};
-renderDays();renderSchedule();updateSummary();
-if(location.hash==="#admin")adminStart();
-sb.auth.onAuthStateChange((_e,s)=>{if(location.hash==="#admin"&&s?.user&&ADMINS.includes((s.user.email||"").toLowerCase()))showAdmin(s.user)});
+const SUPABASE_URL =
+"https://mprwmukokgrkefyifznr.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_vlYyz-iV08qxpi-HrO_TAg_nSnrOaDZ";
+
+const WA =
+"595986170524";
+
+const ADMINS = [
+"gayozonora@gmail.com",
+"angelbaenarada@gmail.com"
+];
+
+const sb =
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+const hours = {
+
+1:[
+["08:00","12:00"],
+["14:00","16:00"]
+],
+
+2:[
+["08:00","12:00"],
+["14:00","16:00"]
+],
+
+3:[
+["08:00","12:00"],
+["14:00","16:00"]
+],
+
+4:[
+["08:00","12:00"],
+["14:00","19:00"]
+],
+
+5:[
+["08:00","12:00"],
+["14:00","19:00"]
+],
+
+6:[
+["08:00","12:00"],
+["16:00","18:00"]
+]
+
+};
+
+const names = [
+"Domingo",
+"Lunes",
+"Martes",
+"Miércoles",
+"Jueves",
+"Viernes",
+"Sábado"
+];
+
+let day = null;
+let time = null;
+let booked = [];
+let blocked = [];
+
+function pad(n){
+return String(n).padStart(2,"0");
+}
+
+function slots(d){
+
+if(!hours[d]) return [];
+
+let o=[];
+
+for(const r of hours[d]){
+
+let [h,m] =
+r[0].split(":").map(Number);
+
+let [eh,em] =
+r[1].split(":").map(Number);
+
+while(h*60+m < eh*60+em){
+
+o.push(`${pad(h)}:${pad(m)}`);
+
+m += 60;
+
+if(m >= 60){
+h++;
+m -= 60;
+}
+
+}
+
+}
+
+return o;
+}
+
+function fmtDate(d){
+
+return new Date(
+d+"T12:00:00"
+).toLocaleDateString(
+"es-CO",
+{
+weekday:"long",
+day:"numeric",
+month:"long"
+}
+);
+
+}
+
+function selectedServices(){
+
+return [
+...document.querySelectorAll(
+".svc input:checked"
+)
+].map(x=>x.value);
+
+}
+
+async function loadAvailability(){
+
+if(day===null || !window.selectedDate)
+return;
+
+const {data:res} =
+await sb
+.from("bookings")
+.select("booking_time,status")
+.eq("booking_date",window.selectedDate)
+.in("status",["confirmed","blocked"]);
+
+booked =
+(res||[])
+.map(
+x=>String(x.booking_time).slice(0,5)
+);
+
+const {data:bl} =
+await sb
+.from("slot_blocks")
+.select("booking_time")
+.eq("booking_date",window.selectedDate);
+
+blocked =
+(bl||[])
+.map(
+x=>String(x.booking_time).slice(0,5)
+);
+
+renderSchedule();
+
+}
+
+function renderDays(){
+
+const box =
+document.getElementById("days");
+
+box.innerHTML="";
+
+for(let i=0;i<7;i++){
+
+const b =
+document.createElement("button");
+
+b.className =
+"day"+(i===day?" active":"");
+
+b.innerHTML =
+`
+<small>
+${names[i].slice(0,3).toUpperCase()}
+</small>
+<br>
+${names[i]}
+`;
+
+b.onclick =
+()=>chooseDay(i);
+
+box.appendChild(b);
+
+}
+
+}
+
+function chooseDay(i){
+
+day=i;
+time=null;
+
+const now=new Date();
+
+const diff =
+(i-now.getDay()+7)%7;
+
+const d=new Date(now);
+
+d.setDate(
+now.getDate()+diff
+);
+
+window.selectedDate =
+d.toISOString().slice(0,10);
+
+renderDays();
+renderSchedule();
+updateSummary();
+loadAvailability();
+
+}
+
+function renderSchedule(){
+
+const box =
+document.getElementById("schedule");
+
+if(day===null){
+
+box.innerHTML =
+'<p class="note">Selecciona un día.</p>';
+
+return;
+}
+
+if(day===0){
+
+box.innerHTML =
+`
+<p class="note">
+<b>Domingo · Turno exclusivo / VIP ✨</b>
+<br>
+Consulta disponibilidad por WhatsApp.
+</p>
+`;
+
+return;
+}
+
+box.innerHTML =
+`
+<div class="times"></div>
+<p class="note">
+Turnos disponibles cada 1 hora.
+</p>
+`;
+
+const grid =
+box.querySelector(".times");
+
+slots(day).forEach(t=>{
+
+const b =
+document.createElement("button");
+
+const isBusy =
+booked.includes(t) ||
+blocked.includes(t);
+
+b.className =
+"time"+
+(t===time?" selected":"")+
+(isBusy?" busy":"");
+
+b.textContent =
+t+(isBusy?" · Ocupado":"");
+
+b.disabled=isBusy;
+
+b.onclick=()=>{
+time=t;
+renderSchedule();
+updateSummary();
+};
+
+grid.appendChild(b);
+
+});
+
+}
+
+function updateSummary(){
+
+const sv =
+selectedServices();
+
+const n =
+document.getElementById("name")
+.value.trim();
+
+document.getElementById("summary")
+.innerHTML =
+`
+<b>Día:</b>
+${window.selectedDate?fmtDate(window.selectedDate):"—"}
+<br>
+
+<b>Hora:</b>
+${time||"—"}
+<br>
+
+<b>Servicio:</b>
+${sv.join(", ")||"—"}
+<br>
+
+<b>Nombre:</b>
+${n||"—"}
+`;
+
+document.getElementById("book").disabled =
+!(
+window.selectedDate &&
+time &&
+sv.length &&
+n
+);
+
+}
+
+document
+.querySelectorAll(".svc input")
+.forEach(
+x=>x.onchange=updateSummary
+);
+
+document.getElementById("name")
+.oninput=updateSummary;
+
+document.getElementById("phone")
+.oninput=updateSummary;
+
+document.getElementById("book").onclick =
+async()=>{
+
+const sv=selectedServices();
+
+const n =
+document.getElementById("name")
+.value.trim();
+
+const p =
+document.getElementById("phone")
+.value.trim();
+
+const {error} =
+await sb
+.from("bookings")
+.insert({
+
+booking_date:
+window.selectedDate,
+
+booking_time:
+time+":00",
+
+customer_name:n,
+
+customer_phone:p,
+
+service_ids:[],
+
+status:"confirmed"
+
+});
+
+if(error){
+
+if(error.code==="23505"){
+
+alert(
+"Ese horario acaba de ser ocupado. Elige otro."
+);
+
+await loadAvailability();
+
+return;
+
+}
+
+alert(
+"No se pudo guardar la reserva."
+);
+
+return;
+
+}
+
+const msg =
+`Hola Jen Nails 💗%0A%0A`+
+`Quiero agendar un turno.%0A`+
+`📅 Día: ${fmtDate(window.selectedDate)}%0A`+
+`🕐 Hora: ${time}%0A`+
+`💅 Servicio(s): ${sv.join(", ")}%0A`+
+`👤 Nombre: ${n}%0A`+
+`📱 Teléfono: ${p||"No indicado"}`;
+
+location.href =
+`https://wa.me/${WA}?text=${msg}`;
+
+};
+
+
+/* ADMINISTRACIÓN */
+
+async function adminStart(){
+
+document.getElementById("publicView")
+.style.display="none";
+
+document.getElementById("adminView")
+.style.display="block";
+
+const {data} =
+await sb.auth.getUser();
+
+if(
+data.user &&
+ADMINS.includes(
+(data.user.email||"").toLowerCase()
+)
+){
+
+showAdmin(data.user);
+
+}
+
+}
+
+async function showAdmin(user){
+
+document.getElementById("adminLogin")
+.style.display="none";
+
+document.getElementById("adminPanel")
+.style.display="block";
+
+document.getElementById("who")
+.textContent =
+"Sesión: "+user.email;
+
+document.getElementById("adminDate")
+.value =
+new Date()
+.toISOString()
+.slice(0,10);
+
+loadAdmin();
+
+}
+
+document.getElementById("magic")
+.onclick=async()=>{
+
+const email =
+document.getElementById("adminEmail")
+.value.trim().toLowerCase();
+
+if(
+!ADMINS.includes(email)
+){
+
+document.getElementById("adminMsg")
+.innerHTML =
+`
+<span class="error">
+Ese correo no está autorizado.
+</span>
+`;
+
+return;
+
+}
+
+const {error} =
+await sb.auth.signInWithOtp({
+
+email,
+
+options:{
+emailRedirectTo:
+location.href.split("#")[0]+"#admin"
+}
+
+});
+
+document.getElementById("adminMsg")
+.textContent =
+error
+?"No se pudo enviar el enlace."
+:"Revisa tu correo para abrir el panel.";
+
+};
+
+document.getElementById("adminDate")
+.onchange=loadAdmin;
+async function loadAdmin(){
+
+const d =
+document.getElementById("adminDate").value;
+
+if(!d)return;
+
+const {data:reservas,error} =
+await sb
+.from("bookings")
+.select("id,booking_time,customer_name,customer_phone,status,created_at")
+.eq("booking_date",d)
+.order("booking_time");
+
+if(error){
+document.getElementById("adminBookings").textContent =
+"No se pudieron cargar las reservas.";
+return;
+}
+
+const {data:cerrados} =
+await sb
+.from("slot_blocks")
+.select("booking_time")
+.eq("booking_date",d);
+
+const closed =
+(cerrados||[]).map(
+x=>String(x.booking_time).slice(0,5)
+);
+
+const reservaMap={};
+
+(reservas||[]).forEach(x=>{
+reservaMap[
+String(x.booking_time).slice(0,5)
+]=x;
+});
+
+const dow =
+new Date(d+"T12:00:00").getDay();
+
+const allTimes =
+slots(dow);
+
+const box =
+document.getElementById("adminBookings");
+
+if(!allTimes.length){
+box.innerHTML =
+"No hay horarios configurados para este día.";
+return;
+}
+
+box.innerHTML =
+allTimes.map(t=>{
+
+const r=reservaMap[t];
+
+const isClosed =
+closed.includes(t);
+
+
+/* RESERVADO */
+
+if(r){
+
+return `
+<div class="adminRow">
+
+<div class="adminTop">
+
+<span>
+<b>${t}</b>
+
+<span class="slotState">
+· RESERVADO
+</span>
+
+</span>
+
+<span>
+${r.status}
+</span>
+
+</div>
+
+<div style="margin-top:8px">
+
+👤 ${r.customer_name}
+
+<br>
+
+📱 ${r.customer_phone||"No indicado"}
+
+</div>
+
+<div class="adminActions">
+
+<button
+class="btn danger"
+onclick="cancelBooking('${r.id}')"
+>
+❌ Cancelar reserva
+</button>
+
+</div>
+
+</div>
+`;
+
+}
+
+
+/* CERRADO */
+
+if(isClosed){
+
+return `
+<div class="adminRow">
+
+<div class="adminTop">
+
+<span>
+
+<b>${t}</b>
+
+<span class="slotState closed">
+· CERRADO
+</span>
+
+</span>
+
+</div>
+
+<div class="adminActions">
+
+<button
+class="btn success"
+onclick="openSlot('${d}','${t}')"
+>
+🔓 Abrir horario
+</button>
+
+</div>
+
+</div>
+`;
+
+}
+
+
+/* DISPONIBLE */
+
+return `
+<div class="adminRow">
+
+<div class="adminTop">
+
+<span>
+
+<b>${t}</b>
+
+<span class="slotState available">
+· DISPONIBLE
+</span>
+
+</span>
+
+</div>
+
+<div class="adminActions">
+
+<button
+class="btn danger"
+onclick="closeSlot('${d}','${t}')"
+>
+🔒 Cerrar horario
+</button>
+
+</div>
+
+</div>
+`;
+
+}).join("");
+
+}
+
+
+/* CERRAR HORARIO */
+
+async function closeSlot(date,t){
+
+const {error} =
+await sb
+.from("slot_blocks")
+.insert({
+booking_date:date,
+booking_time:t+":00"
+});
+
+if(error){
+
+alert(
+"No se pudo cerrar el horario."
+);
+
+return;
+}
+
+await loadAdmin();
+
+}
+
+
+/* ABRIR HORARIO */
+
+async function openSlot(date,t){
+
+const {error} =
+await sb
+.from("slot_blocks")
+.delete()
+.eq("booking_date",date)
+.eq("booking_time",t+":00");
+
+if(error){
+
+alert(
+"No se pudo abrir el horario."
+);
+
+return;
+}
+
+await loadAdmin();
+
+}
+
+
+/* CANCELAR RESERVA */
+
+async function cancelBooking(id){
+
+if(
+!confirm(
+"¿Seguro que quieres cancelar esta reserva?"
+)
+){
+
+return;
+}
+
+const {error} =
+await sb
+.from("bookings")
+.update({
+status:"cancelled"
+})
+.eq("id",id);
+
+if(error){
+
+alert(
+"No se pudo cancelar la reserva."
+);
+
+return;
+}
+
+await loadAdmin();
+
+}
+
+
+/* CERRAR SESIÓN */
+
+document.getElementById("logout")
+.onclick=async()=>{
+
+await sb.auth.signOut();
+
+location.href =
+location.href.split("#")[0];
+
+};
+
+
+/* INICIAR */
+
+renderDays();
+
+renderSchedule();
+
+updateSummary();
+
+if(
+location.hash==="#admin"
+){
+
+adminStart();
+
+}
+
+sb.auth.onAuthStateChange(
+(_e,s)=>{
+
+if(
+location.hash==="#admin" &&
+s?.user &&
+ADMINS.includes(
+(s.user.email||"").toLowerCase()
+)
+){
+
+showAdmin(s.user);
+
+}
+
+}
+);
+
 </script>
-</body></html>
+
+</body>
+</html>
