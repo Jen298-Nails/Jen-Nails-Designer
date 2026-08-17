@@ -22,7 +22,7 @@ content="width=device-width, initial-scale=1.0"
 --pink-border:#edcbd9;
 --text:#30242b;
 --muted:#806c76;
---white:#ffffff;
+--white:#fff;
 --danger:#b42355;
 --success:#16734a;
 }
@@ -32,515 +32,307 @@ box-sizing:border-box;
 }
 
 body{
-
 margin:0;
-
-font-family:
-Arial,
-Helvetica,
-sans-serif;
-
+font-family:Arial,Helvetica,sans-serif;
 background:#fff9fc;
-
 color:var(--text);
-
 }
 
 header{
-
 background:#fff;
-
 text-align:center;
-
 padding:30px 18px 24px;
-
 border-bottom:1px solid var(--pink-border);
-
 }
 
 .logo{
-
-font-family:
-Georgia,
-serif;
-
+font-family:Georgia,serif;
 font-size:42px;
-
 font-weight:bold;
-
 letter-spacing:4px;
-
 color:#111;
-
 }
 
 .logoSub{
-
 margin-top:4px;
-
 font-size:12px;
-
 letter-spacing:6px;
-
 font-weight:bold;
-
 color:var(--pink);
-
 }
 
 header p{
-
 margin:15px 0 0;
-
 color:var(--muted);
-
 font-size:14px;
-
 }
 
 .container{
-
 width:min(950px,92%);
-
 margin:22px auto 60px;
-
 }
 
 .card{
-
-background:var(--white);
-
+background:#fff;
 border:1px solid var(--pink-border);
-
 border-radius:20px;
-
 padding:20px;
-
 margin-bottom:18px;
-
-box-shadow:
-0 8px 30px rgba(80,20,50,.05);
-
+box-shadow:0 8px 30px rgba(80,20,50,.05);
 }
 
 h1{
-
 margin:0 0 16px;
-
 font-size:27px;
-
 }
 
 h2{
-
 margin:0 0 14px;
-
 font-size:20px;
-
 }
 
 .note{
-
 font-size:13px;
-
 color:var(--muted);
-
 line-height:1.5;
-
 }
 
 .days{
-
 display:flex;
-
 gap:8px;
-
 overflow-x:auto;
-
 padding-bottom:5px;
-
 }
 
 .day{
-
 border:1px solid var(--pink-border);
-
 background:#fff;
-
 border-radius:14px;
-
 padding:11px 13px;
-
 cursor:pointer;
-
 min-width:86px;
-
 color:var(--text);
-
 }
 
 .day.active{
-
 background:var(--pink);
-
 border-color:var(--pink);
-
-color:white;
-
+color:#fff;
 }
 
 .day small{
-
 font-size:11px;
-
 }
 
 .times{
-
 display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(105px,1fr));
-
+grid-template-columns:repeat(auto-fit,minmax(105px,1fr));
 gap:9px;
-
 margin-top:16px;
-
 }
 
 .time{
-
 border:1px solid var(--pink-border);
-
 background:#fff;
-
 border-radius:13px;
-
 padding:13px 8px;
-
 font-weight:bold;
-
 font-size:15px;
-
 cursor:pointer;
-
 }
 
 .time:hover{
-
 border-color:var(--pink);
-
 }
 
 .time.selected{
-
 background:var(--pink-light);
-
 border:2px solid var(--pink);
-
 }
 
 .time.busy{
-
-background:#eeeeee;
-
-border-color:#dddddd;
-
+background:#eee;
+border-color:#ddd;
 color:#999;
-
 cursor:not-allowed;
-
 text-decoration:line-through;
-
 }
 
 .services{
-
 display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(190px,1fr));
-
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
 gap:10px;
-
 }
 
 .service input{
-
 display:none;
-
 }
 
 .service label{
-
 display:block;
-
 padding:14px;
-
 border:1px solid var(--pink-border);
-
 border-radius:13px;
-
 cursor:pointer;
-
 background:#fff;
-
 }
 
 .service input:checked + label{
-
 background:var(--pink-light);
-
 border:2px solid var(--pink);
-
 }
 
 .service strong{
-
 display:block;
-
 margin-bottom:4px;
-
 }
 
 .service span{
-
 font-size:12px;
-
 color:var(--muted);
-
 }
 
 .fields{
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
 gap:10px;
-
 }
 
 input{
-
 width:100%;
-
 padding:14px;
-
 border-radius:12px;
-
 border:1px solid var(--pink-border);
-
 font-size:16px;
-
 outline:none;
-
 }
 
 input:focus{
-
 border-color:var(--pink);
-
 }
 
 button{
-
 font-family:inherit;
-
 }
 
 .btn{
-
 border:0;
-
 border-radius:13px;
-
 padding:13px 16px;
-
 font-weight:bold;
-
 cursor:pointer;
-
 font-size:14px;
-
 }
 
 .primary{
-
 background:var(--pink);
-
 color:#fff;
-
 width:100%;
-
 }
 
 .primary:disabled{
-
 opacity:.45;
-
 cursor:not-allowed;
-
 }
 
 .secondary{
-
 background:#fff;
-
 border:1px solid var(--pink-border);
-
 }
 
 .danger{
-
 background:#fff0f3;
-
 color:var(--danger);
-
 border:1px solid #efb8cb;
-
 }
 
 .success{
-
 background:#effbf5;
-
 color:var(--success);
-
 border:1px solid #b8dfcb;
-
 }
 
 .summary{
-
 background:var(--pink-light);
-
 border-radius:14px;
-
 padding:15px;
-
 line-height:1.7;
-
 }
 
 .hidden{
-
 display:none !important;
-
 }
 
 #adminView{
-
 display:none;
-
 }
 
 .admin-row{
-
 border:1px solid var(--pink-border);
-
 border-radius:15px;
-
 padding:14px;
-
 margin:9px 0;
-
 background:#fff;
-
 }
 
 .admin-row-top{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 gap:10px;
-
 }
 
 .admin-actions{
-
 display:flex;
-
 gap:8px;
-
 flex-wrap:wrap;
-
 margin-top:12px;
-
 }
 
 .status{
-
 font-size:12px;
-
 font-weight:bold;
-
 }
 
 .status.available{
-
 color:var(--success);
-
 }
 
 .status.closed{
-
 color:var(--danger);
-
 }
 
 .status.booked{
-
 color:#7a3f58;
-
 }
 
 .login-box{
-
 max-width:500px;
-
 margin:auto;
-
 }
 
 .admin-title{
-
 text-align:center;
-
 margin-bottom:20px;
-
 }
 
 .message{
-
 margin-top:12px;
-
 font-size:13px;
-
 }
 
 @media(max-width:600px){
 
 .logo{
-
 font-size:34px;
-
 }
 
 .fields{
-
 grid-template-columns:1fr;
-
 }
 
 .card{
-
 padding:16px;
-
 }
 
 }
@@ -549,9 +341,7 @@ padding:16px;
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -570,16 +360,14 @@ Agenda tu turno de forma rápida y sencilla ✨
 </header>
 
 
-
-<!-- ========================= -->
-<!-- PÁGINA PÚBLICA -->
-<!-- ========================= -->
+<!-- =========================
+     PÁGINA PÚBLICA
+========================= -->
 
 <main
 id="publicView"
 class="container"
 >
-
 
 <section class="card">
 
@@ -603,7 +391,6 @@ id="schedule"
 </section>
 
 
-
 <section class="card">
 
 <h2>
@@ -612,178 +399,99 @@ id="schedule"
 
 <div class="services">
 
-
 <div class="service">
-
 <input
 type="checkbox"
 id="service1"
 value="Esmaltado semipermanente"
 >
-
 <label for="service1">
-
-<strong>
-Esmaltado semipermanente
-</strong>
-
-<span>
-Duración aproximada: 1 hora
-</span>
-
+<strong>Esmaltado semipermanente</strong>
+<span>Duración aproximada: 1 hora</span>
 </label>
-
 </div>
 
 
-
 <div class="service">
-
 <input
 type="checkbox"
 id="service2"
 value="Kapping Gel"
 >
-
 <label for="service2">
-
-<strong>
-Kapping Gel
-</strong>
-
-<span>
-Duración aproximada: 1 hora
-</span>
-
+<strong>Kapping Gel</strong>
+<span>Duración aproximada: 1 hora</span>
 </label>
-
 </div>
 
 
-
 <div class="service">
-
 <input
 type="checkbox"
 id="service3"
-value="Soft Gel"
+value="Laminado de cejas"
 >
-
 <label for="service3">
-
-<strong>
-Soft Gel
-</strong>
-
-<span>
-Duración aproximada: 2 horas
-</span>
-
+<strong>Laminado de cejas</strong>
+<span>Duración aproximada: 1 hora</span>
 </label>
-
 </div>
 
 
-
 <div class="service">
-
 <input
 type="checkbox"
 id="service4"
-value="Uñas acrílicas"
+value="Manicura completa"
 >
-
 <label for="service4">
-
-<strong>
-Uñas acrílicas
-</strong>
-
-<span>
-Duración aproximada: 2 horas
-</span>
-
+<strong>Manicura completa</strong>
+<span>Duración aproximada: 1 hora</span>
 </label>
-
 </div>
 
 
-
 <div class="service">
-
 <input
 type="checkbox"
 id="service5"
-value="Uñas esculpidas"
+value="Soft Gel"
 >
-
 <label for="service5">
-
-<strong>
-Uñas esculpidas
-</strong>
-
-<span>
-Duración aproximada: 2 horas
-</span>
-
+<strong>Soft Gel</strong>
+<span>Duración aproximada: 2 horas</span>
 </label>
-
 </div>
 
 
-
 <div class="service">
-
 <input
 type="checkbox"
 id="service6"
-value="Manicura completa"
+value="Uñas acrílicas"
 >
-
 <label for="service6">
-
-<strong>
-Manicura completa
-</strong>
-
-<span>
-Duración aproximada: 1 hora
-</span>
-
+<strong>Uñas acrílicas</strong>
+<span>Duración aproximada: 2 horas</span>
 </label>
-
 </div>
-
 
 
 <div class="service">
-
 <input
 type="checkbox"
 id="service7"
-value="Laminado de cejas"
+value="Uñas esculpidas"
 >
-
 <label for="service7">
-
-<strong>
-Laminado de cejas
-</strong>
-
-<span>
-Duración aproximada: 1 hora
-</span>
-
+<strong>Uñas esculpidas</strong>
+<span>Duración aproximada: 2 horas</span>
 </label>
-
 </div>
-
 
 </div>
 
 </section>
-
 
 
 <section class="card">
@@ -811,7 +519,6 @@ placeholder="Tu número de teléfono"
 </section>
 
 
-
 <section class="card">
 
 <h2>
@@ -822,9 +529,7 @@ Resumen de tu turno
 id="summary"
 class="summary"
 >
-
 Selecciona un día, un horario y un servicio.
-
 </div>
 
 <br>
@@ -834,41 +539,30 @@ id="bookButton"
 class="btn primary"
 disabled
 >
-
 Confirmar turno y WhatsApp 💗
-
 </button>
 
 <p class="note">
-
 Al confirmar, el turno se guardará automáticamente y se abrirá WhatsApp con el mensaje preparado.
-
 </p>
 
 </section>
 
-
 </main>
 
 
-
-<!-- ========================= -->
-<!-- PANEL ADMINISTRADOR -->
-<!-- ========================= -->
+<!-- =========================
+     ADMINISTRACIÓN
+========================= -->
 
 <section
 id="adminView"
 class="container"
 >
 
-
 <div class="card login-box">
 
-
-<div
-id="adminLogin"
->
-
+<div id="adminLogin">
 
 <h1 class="admin-title">
 🔐 Administración
@@ -878,7 +572,6 @@ id="adminLogin"
 Acceso exclusivo para Jen Nails.
 </p>
 
-
 <input
 id="adminEmail"
 type="email"
@@ -886,9 +579,7 @@ placeholder="Correo electrónico"
 autocomplete="username"
 >
 
-
 <br><br>
-
 
 <input
 id="adminPassword"
@@ -897,28 +588,21 @@ placeholder="Contraseña"
 autocomplete="current-password"
 >
 
-
 <br><br>
-
 
 <button
 id="loginButton"
 class="btn primary"
 >
-
 Iniciar sesión
-
 </button>
-
 
 <div
 id="loginMessage"
 class="message"
 ></div>
 
-
 </div>
-
 
 
 <div
@@ -926,87 +610,64 @@ id="adminPanel"
 class="hidden"
 >
 
-
 <h1>
 📋 Administración de turnos
 </h1>
-
 
 <p
 id="loggedUser"
 class="note"
 ></p>
 
-
 <input
 id="adminDate"
 type="date"
 >
 
-
 <br><br>
-
 
 <div
 id="adminSchedule"
 ></div>
 
-
 <br>
-
 
 <button
 id="logoutButton"
 class="btn secondary"
 >
-
 Cerrar sesión
-
 </button>
 
-
 </div>
 
-
 </div>
-
 
 </section>
 
 
-
 <script>
 
-
-/* ==================================
+/* =========================
    CONFIGURACIÓN
-================================== */
-
+========================= */
 
 const SUPABASE_URL =
 "https://mprwmukokgrkefyifznr.supabase.co";
 
-
 const SUPABASE_ANON_KEY =
 "sb_publishable_vlYyz-iV08qxpi-HrO_TAg_nSnrOaDZ";
-
 
 const WHATSAPP_NUMBER =
 "595986170524";
 
-
 const PUBLIC_URL =
 "https://jen298-nails.github.io/Jen-Nails-Designer/";
 
-
 const ADMIN_EMAILS = [
-
 "gayozonora@gmail.com",
-
 "angelbaenarada@gmail.com"
-
 ];
-
 
 const supabaseClient =
 supabase.createClient(
@@ -1015,57 +676,36 @@ SUPABASE_ANON_KEY
 );
 
 
-
-/* ==================================
+/* =========================
    HORARIOS
-================================== */
-
-
-/*
-
-1 = lunes
-2 = martes
-3 = miércoles
-4 = jueves
-5 = viernes
-6 = sábado
-0 = domingo
-
-*/
-
+========================= */
 
 const BUSINESS_HOURS = {
-
 
 1:[
 ["08:00","12:00"],
 ["14:00","16:00"]
 ],
 
-
 2:[
 ["08:00","12:00"],
 ["14:00","16:00"]
 ],
-
 
 3:[
 ["08:00","12:00"],
 ["14:00","16:00"]
 ],
 
-
 4:[
 ["08:00","12:00"],
 ["14:00","19:00"]
 ],
 
-
 5:[
 ["08:00","12:00"],
 ["14:00","19:00"]
 ],
-
 
 6:[
 ["08:00","12:00"],
@@ -1074,10 +714,7 @@ const BUSINESS_HOURS = {
 
 };
 
-
-
 const DAY_NAMES = [
-
 "Domingo",
 "Lunes",
 "Martes",
@@ -1085,32 +722,53 @@ const DAY_NAMES = [
 "Jueves",
 "Viernes",
 "Sábado"
-
 ];
 
 
-
-/* ==================================
+/* =========================
    ESTADO
-================================== */
-
+========================= */
 
 let selectedDay = null;
-
 let selectedDate = null;
-
 let selectedTime = null;
-
 let bookedTimes = [];
-
 let closedTimes = [];
 
 
+/* =========================
+   UUID DE SERVICIOS
+========================= */
 
-/* ==================================
+const SERVICE_IDS = {
+
+"Esmaltado semipermanente":
+"61873e01-74ac-4c9a-a4dc-a0642a9deb50",
+
+"Kapping Gel":
+"66ff5823-500e-43b8-b6cb-c8fd07be8773",
+
+"Laminado de cejas":
+"573abc7c-30d6-4f20-a6e3-6d21268f3e37",
+
+"Manicura completa":
+"bd471dc9-bea2-4e8b-ae4d-8716e1f77e9f",
+
+"Soft Gel":
+"2b52346f-0ef1-4ab1-a77a-062a49b71b9a",
+
+"Uñas acrílicas":
+"59d0a0ae-dde0-41e8-9a68-0587a6f7d0aa",
+
+"Uñas esculpidas":
+"bc8a8c45-1f19-4365-92e4-03029a363b53"
+
+};
+
+
+/* =========================
    FUNCIONES
-================================== */
-
+========================= */
 
 function pad(number){
 
@@ -1119,14 +777,12 @@ return String(number).padStart(2,"0");
 }
 
 
-
 function generateSlots(day){
 
 const ranges =
 BUSINESS_HOURS[day] || [];
 
 const result = [];
-
 
 for(
 const range of ranges
@@ -1140,7 +796,6 @@ range[0]
 .split(":")
 .map(Number);
 
-
 const [
 endHour,
 endMinute
@@ -1149,11 +804,9 @@ range[1]
 .split(":")
 .map(Number);
 
-
 while(
-(hour * 60 + minute)
-<
-(endHour * 60 + endMinute)
+hour * 60 + minute <
+endHour * 60 + endMinute
 ){
 
 result.push(
@@ -1161,7 +814,6 @@ result.push(
 );
 
 minute += 60;
-
 
 if(minute >= 60){
 
@@ -1175,17 +827,15 @@ minute -= 60;
 
 }
 
-
 return result;
 
 }
 
 
-
 function formatDate(date){
 
 return new Date(
-date+"T12:00:00"
+date + "T12:00:00"
 ).toLocaleDateString(
 "es-CO",
 {
@@ -1197,7 +847,6 @@ year:"numeric"
 );
 
 }
-
 
 
 function getSelectedServices(){
@@ -1213,12 +862,6 @@ input => input.value
 }
 
 
-
-/* ==================================
-   FECHAS
-================================== */
-
-
 function getDateForDay(day){
 
 const today =
@@ -1231,16 +874,14 @@ let difference =
 day - todayDay;
 
 if(difference < 0){
-
 difference += 7;
-
 }
 
 const date =
 new Date(today);
 
 date.setDate(
-today.getDate()+difference
+today.getDate() + difference
 );
 
 return date;
@@ -1248,11 +889,9 @@ return date;
 }
 
 
-
-/* ==================================
+/* =========================
    DÍAS
-================================== */
-
+========================= */
 
 function renderDays(){
 
@@ -1261,10 +900,9 @@ document.getElementById("days");
 
 container.innerHTML = "";
 
-
 for(
-let day=0;
-day<=6;
+let day = 0;
+day <= 6;
 day++
 ){
 
@@ -1274,30 +912,19 @@ document.createElement("button");
 button.className =
 "day";
 
-
 if(day === selectedDay){
-
-button.classList.add(
-"active"
-);
-
+button.classList.add("active");
 }
-
 
 const date =
 getDateForDay(day);
 
-
 button.innerHTML = `
-
 <small>
 ${DAY_NAMES[day].slice(0,3).toUpperCase()}
 </small>
-
 <br>
-
 ${date.getDate()}
-
 `;
 
 button.onclick =
@@ -1312,16 +939,9 @@ button
 }
 
 
-
-/* ==================================
-   SELECCIONAR DÍA
-================================== */
-
-
 async function selectDay(day){
 
 selectedDay = day;
-
 selectedTime = null;
 
 const date =
@@ -1330,7 +950,6 @@ getDateForDay(day);
 selectedDate =
 date.toISOString()
 .slice(0,10);
-
 
 renderDays();
 
@@ -1341,11 +960,9 @@ updateSummary();
 }
 
 
-
-/* ==================================
+/* =========================
    DISPONIBILIDAD
-================================== */
-
+========================= */
 
 async function loadAvailability(){
 
@@ -1353,24 +970,17 @@ if(
 selectedDay === null ||
 !selectedDate
 ){
-
 return;
-
 }
 
-
 bookedTimes = [];
-
 closedTimes = [];
-
 
 
 const bookingsResponse =
 await supabaseClient
 .from("bookings")
-.select(
-"booking_time,status"
-)
+.select("booking_time,status")
 .eq(
 "booking_date",
 selectedDate
@@ -1385,11 +995,19 @@ selectedDate
 
 
 if(
-bookingsResponse.data
+bookingsResponse.error
 ){
 
+console.error(
+"Error leyendo reservas:",
+bookingsResponse.error
+);
+
+}else{
+
 bookedTimes =
-bookingsResponse.data.map(
+(bookingsResponse.data || [])
+.map(
 item =>
 String(
 item.booking_time
@@ -1399,13 +1017,10 @@ item.booking_time
 }
 
 
-
 const blocksResponse =
 await supabaseClient
 .from("slot_blocks")
-.select(
-"booking_time"
-)
+.select("booking_time")
 .eq(
 "booking_date",
 selectedDate
@@ -1413,11 +1028,19 @@ selectedDate
 
 
 if(
-blocksResponse.data
+blocksResponse.error
 ){
 
+console.error(
+"Error leyendo bloqueos:",
+blocksResponse.error
+);
+
+}else{
+
 closedTimes =
-blocksResponse.data.map(
+(blocksResponse.data || [])
+.map(
 item =>
 String(
 item.booking_time
@@ -1432,11 +1055,9 @@ renderSchedule();
 }
 
 
-
-/* ==================================
-   MOSTRAR HORARIOS
-================================== */
-
+/* =========================
+   HORARIOS
+========================= */
 
 function renderSchedule(){
 
@@ -1445,43 +1066,28 @@ document.getElementById(
 "schedule"
 );
 
-
 if(selectedDay === null){
 
-container.innerHTML = `
-
-<p class="note">
-
+container.innerHTML =
+`<p class="note">
 Selecciona un día para ver los horarios.
-
-</p>
-
-`;
+</p>`;
 
 return;
 
 }
 
 
-
-/* DOMINGO */
-
 if(selectedDay === 0){
 
 container.innerHTML = `
-
 <div class="summary">
-
 <strong>
 ✨ Domingo · Turno exclusivo / VIP
 </strong>
-
 <br><br>
-
 Los turnos del domingo se coordinan directamente por WhatsApp.
-
 </div>
-
 `;
 
 return;
@@ -1494,19 +1100,12 @@ generateSlots(
 selectedDay
 );
 
-
 container.innerHTML = `
-
 <div class="times"></div>
-
 <p class="note">
-
 Los horarios aparecen cada una hora.
-
 </p>
-
 `;
-
 
 const grid =
 container.querySelector(
@@ -1522,36 +1121,30 @@ document.createElement(
 "button"
 );
 
-
 const isBooked =
 bookedTimes.includes(
 slot
 );
-
 
 const isClosed =
 closedTimes.includes(
 slot
 );
 
-
 const unavailable =
 isBooked ||
 isClosed;
 
-
 button.className =
 "time";
 
-
-if(slot === selectedTime){
-
+if(
+slot === selectedTime
+){
 button.classList.add(
 "selected"
 );
-
 }
-
 
 if(unavailable){
 
@@ -1563,17 +1156,12 @@ button.disabled =
 true;
 
 button.textContent =
-slot+" · Ocupado";
+slot + " · Ocupado";
 
 }else{
 
 button.textContent =
 slot;
-
-}
-
-
-if(!unavailable){
 
 button.onclick =
 () => {
@@ -1589,7 +1177,6 @@ updateSummary();
 
 }
 
-
 grid.appendChild(
 button
 );
@@ -1599,34 +1186,28 @@ button
 }
 
 
-
-/* ==================================
+/* =========================
    RESUMEN
-================================== */
-
+========================= */
 
 function updateSummary(){
 
 const services =
 getSelectedServices();
 
-
 const name =
 document.getElementById(
 "customerName"
 ).value.trim();
-
 
 const summary =
 document.getElementById(
 "summary"
 );
 
-
 summary.innerHTML = `
 
 <strong>Día:</strong>
-
 ${
 selectedDate
 ?
@@ -1638,15 +1219,11 @@ formatDate(selectedDate)
 <br>
 
 <strong>Hora:</strong>
-
-${
-selectedTime || "—"
-}
+${selectedTime || "—"}
 
 <br>
 
 <strong>Servicio:</strong>
-
 ${
 services.length
 ?
@@ -1658,21 +1235,15 @@ services.join(", ")
 <br>
 
 <strong>Nombre:</strong>
-
-${
-name || "—"
-}
+${name || "—"}
 
 `;
 
-
 const valid =
-
 selectedDate &&
 selectedTime &&
 services.length > 0 &&
 name;
-
 
 document.getElementById(
 "bookButton"
@@ -1680,12 +1251,6 @@ document.getElementById(
 !valid;
 
 }
-
-
-
-/* ==================================
-   ACTUALIZAR RESUMEN
-================================== */
 
 
 document
@@ -1724,11 +1289,9 @@ updateSummary
 );
 
 
-
-/* ==================================
+/* =========================
    RESERVAR
-================================== */
-
+========================= */
 
 document
 .getElementById(
@@ -1738,15 +1301,18 @@ document
 "click",
 async function(){
 
+const button =
+document.getElementById(
+"bookButton"
+);
+
 const services =
 getSelectedServices();
-
 
 const name =
 document.getElementById(
 "customerName"
 ).value.trim();
-
 
 const phone =
 document.getElementById(
@@ -1770,11 +1336,113 @@ return;
 }
 
 
+button.disabled =
+true;
+
+button.textContent =
+"Guardando turno...";
+
+
 /*
+   Convertimos los nombres
+   seleccionados a UUID.
+*/
 
-Primero comprobamos que el horario
-siga disponible.
+const serviceUUIDs =
+services.map(
+service =>
+SERVICE_IDS[service]
+);
 
+
+if(
+serviceUUIDs.some(
+id => !id
+)
+){
+
+alert(
+"No se pudo identificar uno de los servicios."
+);
+
+button.disabled =
+false;
+
+button.textContent =
+"Confirmar turno y WhatsApp 💗";
+
+return;
+
+}
+
+
+/*
+   Comprobamos si el horario
+   fue bloqueado.
+*/
+
+const blockedCheck =
+await supabaseClient
+.from("slot_blocks")
+.select("id")
+.eq(
+"booking_date",
+selectedDate
+)
+.eq(
+"booking_time",
+selectedTime + ":00"
+)
+.limit(1);
+
+
+if(
+blockedCheck.error
+){
+
+console.error(
+blockedCheck.error
+);
+
+alert(
+"No se pudo comprobar la disponibilidad."
+);
+
+button.disabled =
+false;
+
+button.textContent =
+"Confirmar turno y WhatsApp 💗";
+
+return;
+
+}
+
+
+if(
+blockedCheck.data &&
+blockedCheck.data.length
+){
+
+alert(
+"Ese horario está cerrado. Selecciona otro."
+);
+
+await loadAvailability();
+
+button.disabled =
+false;
+
+button.textContent =
+"Confirmar turno y WhatsApp 💗";
+
+return;
+
+}
+
+
+/*
+   Comprobamos reserva existente.
 */
 
 const check =
@@ -1787,12 +1455,39 @@ selectedDate
 )
 .eq(
 "booking_time",
-selectedTime+":00"
+selectedTime + ":00"
 )
 .in(
 "status",
-["confirmed","blocked"]
+[
+"confirmed",
+"blocked"
+]
+)
+.limit(1);
+
+
+if(
+check.error
+){
+
+console.error(
+check.error
 );
+
+alert(
+"No se pudo comprobar el turno."
+);
+
+button.disabled =
+false;
+
+button.textContent =
+"Confirmar turno y WhatsApp 💗";
+
+return;
+
+}
 
 
 if(
@@ -1801,21 +1496,24 @@ check.data.length
 ){
 
 alert(
-"Ese horario acaba de ser ocupado. Selecciona otro."
+"Ese horario ya está ocupado. Selecciona otro."
 );
 
 await loadAvailability();
+
+button.disabled =
+false;
+
+button.textContent =
+"Confirmar turno y WhatsApp 💗";
 
 return;
 
 }
 
 
-
 /*
-
-Guardamos la reserva.
-
+   GUARDAMOS EL TURNO.
 */
 
 const insert =
@@ -1827,7 +1525,7 @@ booking_date:
 selectedDate,
 
 booking_time:
-selectedTime+":00",
+selectedTime + ":00",
 
 customer_name:
 name,
@@ -1836,34 +1534,47 @@ customer_phone:
 phone,
 
 service_ids:
-services,
+serviceUUIDs,
 
 status:
 "confirmed"
 
-});
+})
+.select()
+.single();
 
 
-if(insert.error){
+if(
+insert.error
+){
 
 console.error(
+"ERROR SUPABASE:",
 insert.error
 );
 
 alert(
-"No se pudo guardar el turno. Inténtalo nuevamente."
+"No se pudo guardar el turno:\n\n" +
+(
+insert.error.message ||
+"Error desconocido"
+)
 );
+
+button.disabled =
+false;
+
+button.textContent =
+"Confirmar turno y WhatsApp 💗";
 
 return;
 
 }
 
 
-
 /*
-
-Mensaje automático de WhatsApp.
-
+   TURNO GUARDADO.
+   AHORA WHATSAPP.
 */
 
 const message =
@@ -1886,7 +1597,6 @@ Gracias 💗`;
 
 
 const whatsappURL =
-
 "https://wa.me/" +
 WHATSAPP_NUMBER +
 "?text=" +
@@ -1895,25 +1605,25 @@ message
 );
 
 
+/*
+   Abrimos WhatsApp
+   después de guardar.
+*/
+
 window.location.href =
 whatsappURL;
 
 });
-
-
-
-/* ==================================
+   /* =========================
    ADMINISTRACIÓN
-================================== */
+========================= */
 
-
-function showAdminView(){
+function showAdmin(){
 
 document.getElementById(
 "publicView"
 ).style.display =
 "none";
-
 
 document.getElementById(
 "adminView"
@@ -1923,64 +1633,81 @@ document.getElementById(
 }
 
 
+function showPublic(){
 
-/* ==================================
-   INICIAR ADMIN
-================================== */
+document.getElementById(
+"publicView"
+).style.display =
+"block";
 
+document.getElementById(
+"adminView"
+).style.display =
+"none";
+
+}
+
+
+/* =========================
+   LOGIN ADMIN
+========================= */
 
 async function initializeAdmin(){
 
-showAdminView();
+showAdmin();
 
+const {
+data
+} =
+await supabaseClient
+.auth.getSession();
 
 const session =
-await supabaseClient.auth.getSession();
-
-
-if(
-session.data.session &&
-session.data.session.user
-){
-
-const email =
-(
-session.data.session.user.email ||
-""
-).toLowerCase();
-
+data.session;
 
 if(
+session &&
+session.user &&
 ADMIN_EMAILS.includes(
-email
+session.user.email
+.toLowerCase()
 )
 ){
 
 showAdminPanel(
-session.data.session.user
+session.user
 );
 
-}
-
-}
-
-}
-
-
-
-/* ==================================
-   MOSTRAR PANEL
-================================== */
-
-
-function showAdminPanel(user){
+}else{
 
 document.getElementById(
 "adminLogin"
+).style.display =
+"block";
+
+document.getElementById(
+"adminPanel"
 ).classList.add(
 "hidden"
 );
 
+}
+
+}
+
+
+/* =========================
+   MOSTRAR PANEL
+========================= */
+
+function showAdminPanel(
+user
+){
+
+document.getElementById(
+"adminLogin"
+).style.display =
+"none";
 
 document.getElementById(
 "adminPanel"
@@ -1988,36 +1715,40 @@ document.getElementById(
 "hidden"
 );
 
-
 document.getElementById(
 "loggedUser"
 ).textContent =
-"Sesión iniciada como: "+
+"Sesión iniciada como: " +
 user.email;
 
 
+/*
+   Fecha de hoy.
+*/
+
 const today =
-new Date()
-.toISOString()
+new Date();
+
+const todayString =
+today.toISOString()
 .slice(0,10);
 
-
+const adminDate =
 document.getElementById(
 "adminDate"
-).value =
-today;
+);
 
+adminDate.value =
+todayString;
 
 loadAdminSchedule();
 
 }
 
 
-
-/* ==================================
-   LOGIN CON CORREO + CONTRASEÑA
-================================== */
-
+/* =========================
+   LOGIN
+========================= */
 
 document
 .getElementById(
@@ -2036,7 +1767,6 @@ document
 .trim()
 .toLowerCase();
 
-
 const password =
 document
 .getElementById(
@@ -2051,8 +1781,17 @@ document.getElementById(
 );
 
 
+if(
+!email ||
+!password
+){
+
 message.textContent =
-"";
+"Escribe tu correo y contraseña.";
+
+return;
+
+}
 
 
 if(
@@ -2062,17 +1801,7 @@ email
 ){
 
 message.textContent =
-"Este correo no tiene permisos de administrador.";
-
-return;
-
-}
-
-
-if(!password){
-
-message.textContent =
-"Escribe tu contraseña.";
+"Este correo no tiene acceso al administrador.";
 
 return;
 
@@ -2085,8 +1814,7 @@ message.textContent =
 
 const result =
 await supabaseClient
-.auth
-.signInWithPassword({
+.auth.signInWithPassword({
 
 email:
 email,
@@ -2097,13 +1825,16 @@ password
 });
 
 
-if(result.error){
+if(
+result.error
+){
 
 console.error(
 result.error
 );
 
 message.textContent =
+result.error.message ||
 "Correo o contraseña incorrectos.";
 
 return;
@@ -2118,11 +1849,31 @@ result.data.user
 });
 
 
+/* =========================
+   CERRAR SESIÓN
+========================= */
 
-/* ==================================
-   CAMBIO DE FECHA ADMIN
-================================== */
+document
+.getElementById(
+"logoutButton"
+)
+.addEventListener(
+"click",
+async function(){
 
+await supabaseClient
+.auth.signOut();
+
+window.location.hash = "";
+
+showPublic();
+
+});
+
+
+/* =========================
+   FECHA ADMIN
+========================= */
 
 document
 .getElementById(
@@ -2134,65 +1885,692 @@ loadAdminSchedule
 );
 
 
+/* =========================
+   HORARIOS ADMIN
+========================= */
 
-/* ==================================
-   CERRAR SESIÓN
-================================== */
+async function loadAdminSchedule(){
 
-
+const date =
 document
 .getElementById(
-"logoutButton"
+"adminDate"
 )
-.addEventListener(
-"click",
-async function(){
+.value;
 
-await supabaseClient
-.auth
-.signOut();
-
-
-location.href =
-PUBLIC_URL;
-
-});
+const container =
+document.getElementById(
+"adminSchedule"
+);
 
 
+if(!date){
 
-/* ==================================
-   INICIAR ADMIN SI #admin
-================================== */
-
-
-if(
-window.location.hash === "#admin"
-){
-
-initializeAdmin();
-
-}
-
-
-
-/* ==================================
-   DETECTAR SESIÓN
-================================== */
-
-
-supabaseClient
-.auth
-.onAuthStateChange(
-function(event,session){
-
-if(
-window.location.hash !== "#admin"
-){
+container.innerHTML =
+`
+<p class="note">
+Selecciona una fecha.
+</p>
+`;
 
 return;
 
 }
 
+
+const jsDate =
+new Date(
+date + "T12:00:00"
+);
+
+const day =
+jsDate.getDay();
+
+
+/*
+   DOMINGO
+*/
+
+if(
+day === 0
+){
+
+container.innerHTML = `
+
+<div class="summary">
+
+<strong>
+✨ Domingo · Turno exclusivo / VIP
+</strong>
+
+<br><br>
+
+Los turnos del domingo se coordinan
+directamente por WhatsApp.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const slots =
+generateSlots(day);
+
+
+/*
+   RESERVAS
+*/
+
+const bookingsResponse =
+await supabaseClient
+.from("bookings")
+.select("*")
+.eq(
+"booking_date",
+date
+);
+
+
+if(
+bookingsResponse.error
+){
+
+console.error(
+bookingsResponse.error
+);
+
+container.innerHTML =
+`
+<p class="note">
+No se pudieron cargar las reservas.
+</p>
+`;
+
+return;
+
+}
+
+
+const bookings =
+bookingsResponse.data || [];
+
+
+/*
+   BLOQUEOS
+*/
+
+const blocksResponse =
+await supabaseClient
+.from("slot_blocks")
+.select("*")
+.eq(
+"booking_date",
+date
+);
+
+
+if(
+blocksResponse.error
+){
+
+console.error(
+blocksResponse.error
+);
+
+container.innerHTML =
+`
+<p class="note">
+No se pudieron cargar los horarios bloqueados.
+</p>
+`;
+
+return;
+
+}
+
+
+const blocks =
+blocksResponse.data || [];
+
+
+container.innerHTML = `
+
+<div class="summary">
+
+<strong>
+${formatDate(date)}
+</strong>
+
+<br>
+
+Total de horarios:
+${slots.length}
+
+</div>
+
+<br>
+
+`;
+
+
+/*
+   CADA HORARIO
+*/
+
+slots.forEach(
+slot => {
+
+const booking =
+bookings.find(
+item =>
+String(
+item.booking_time
+)
+.slice(0,5) === slot
+&&
+(
+item.status === "confirmed"
+||
+item.status === "blocked"
+)
+);
+
+
+const blocked =
+blocks.find(
+item =>
+String(
+item.booking_time
+)
+.slice(0,5) === slot
+);
+
+
+const row =
+document.createElement(
+"div"
+);
+
+row.className =
+"admin-row";
+
+
+/*
+   RESERVADO
+*/
+
+if(booking){
+
+let serviceText =
+"Servicio no indicado";
+
+
+if(
+Array.isArray(
+booking.service_ids
+)
+){
+
+serviceText =
+booking.service_ids
+.map(
+id =>
+getServiceNameById(id)
+)
+.filter(Boolean)
+.join(", ");
+
+}
+
+
+row.innerHTML = `
+
+<div class="admin-row-top">
+
+<div>
+
+<strong>
+🕐 ${slot}
+</strong>
+
+<br>
+
+<span class="status booked">
+RESERVADO
+</span>
+
+</div>
+
+</div>
+
+<br>
+
+<strong>
+👤 ${
+escapeHTML(
+booking.customer_name ||
+"Sin nombre"
+)
+}
+</strong>
+
+<br>
+
+📱 ${
+escapeHTML(
+booking.customer_phone ||
+"Sin teléfono"
+)
+}
+
+<br>
+
+💅 ${
+escapeHTML(
+serviceText ||
+"Sin servicio"
+)
+}
+
+<div class="admin-actions">
+
+<button
+class="btn danger"
+onclick="cancelBooking('${booking.id}')"
+>
+❌ Cancelar turno
+</button>
+
+</div>
+
+`;
+
+}
+
+
+/*
+   CERRADO
+*/
+
+else if(blocked){
+
+row.innerHTML = `
+
+<div class="admin-row-top">
+
+<div>
+
+<strong>
+🕐 ${slot}
+</strong>
+
+<br>
+
+<span class="status closed">
+CERRADO
+</span>
+
+</div>
+
+</div>
+
+<div class="admin-actions">
+
+<button
+class="btn success"
+onclick="openSlot('${date}','${slot}')"
+>
+🔓 Volver a abrir
+</button>
+
+</div>
+
+`;
+
+}
+
+
+/*
+   DISPONIBLE
+*/
+
+else{
+
+row.innerHTML = `
+
+<div class="admin-row-top">
+
+<div>
+
+<strong>
+🕐 ${slot}
+</strong>
+
+<br>
+
+<span class="status available">
+DISPONIBLE
+</span>
+
+</div>
+
+</div>
+
+<div class="admin-actions">
+
+<button
+class="btn danger"
+onclick="closeSlot('${date}','${slot}')"
+>
+🔒 Cerrar horario
+</button>
+
+</div>
+
+`;
+
+}
+
+
+container.appendChild(
+row
+);
+
+});
+
+}
+
+
+/* =========================
+   NOMBRE DEL SERVICIO
+========================= */
+
+function getServiceNameById(
+id
+){
+
+for(
+const name in SERVICE_IDS
+){
+
+if(
+SERVICE_IDS[name] === id
+){
+
+return name;
+
+}
+
+}
+
+return id;
+
+}
+
+
+/* =========================
+   SEGURIDAD HTML
+========================= */
+
+function escapeHTML(
+value
+){
+
+return String(
+value || ""
+)
+.replace(
+/&/g,
+"&amp;"
+)
+.replace(
+/</g,
+"&lt;"
+)
+.replace(
+/>/g,
+"&gt;"
+)
+.replace(
+/"/g,
+"&quot;"
+)
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* =========================
+   CERRAR HORARIO
+========================= */
+
+async function closeSlot(
+date,
+time
+){
+
+const confirmed =
+confirm(
+`¿Quieres cerrar el horario de las ${time}?`
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+const result =
+await supabaseClient
+.from("slot_blocks")
+.insert({
+
+booking_date:
+date,
+
+booking_time:
+time + ":00"
+
+});
+
+
+if(
+result.error
+){
+
+console.error(
+result.error
+);
+
+alert(
+"No se pudo cerrar el horario:\n\n" +
+result.error.message
+);
+
+return;
+
+}
+
+
+await loadAdminSchedule();
+
+
+/*
+   Si el día cerrado
+   es el día que ve el cliente,
+   actualizamos también.
+*/
+
+if(
+selectedDate === date
+){
+
+await loadAvailability();
+
+}
+
+}
+
+
+/* =========================
+   ABRIR HORARIO
+========================= */
+
+async function openSlot(
+date,
+time
+){
+
+const confirmed =
+confirm(
+`¿Quieres volver a abrir el horario de las ${time}?`
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+const result =
+await supabaseClient
+.from("slot_blocks")
+.delete()
+.eq(
+"booking_date",
+date
+)
+.eq(
+"booking_time",
+time + ":00"
+);
+
+
+if(
+result.error
+){
+
+console.error(
+result.error
+);
+
+alert(
+"No se pudo abrir el horario:\n\n" +
+result.error.message
+);
+
+return;
+
+}
+
+
+await loadAdminSchedule();
+
+
+if(
+selectedDate === date
+){
+
+await loadAvailability();
+
+}
+
+}
+
+
+/* =========================
+   CANCELAR TURNO
+========================= */
+
+async function cancelBooking(
+bookingId
+){
+
+const confirmed =
+confirm(
+"¿Seguro que quieres cancelar este turno?"
+);
+
+
+if(!confirmed){
+
+return;
+
+}
+
+
+const result =
+await supabaseClient
+.from("bookings")
+.update({
+
+status:
+"cancelled"
+
+})
+.eq(
+"id",
+bookingId
+);
+
+
+if(
+result.error
+){
+
+console.error(
+result.error
+);
+
+alert(
+"No se pudo cancelar el turno:\n\n" +
+result.error.message
+);
+
+return;
+
+}
+
+
+alert(
+"Turno cancelado correctamente."
+);
+
+
+await loadAdminSchedule();
+
+
+if(selectedDate){
+
+await loadAvailability();
+
+}
+
+}
+
+
+/* =========================
+   PROTECCIÓN ADMIN
+========================= */
+
+supabaseClient
+.auth
+.onAuthStateChange(
+async function(
+event,
+session
+){
 
 if(
 session &&
@@ -2203,756 +2581,115 @@ const email =
 (
 session.user.email ||
 ""
-).toLowerCase();
+)
+.toLowerCase();
 
 
 if(
-ADMIN_EMAILS.includes(
+!ADMIN_EMAILS.includes(
 email
 )
 ){
 
-showAdminPanel(
-session.user
-);
+await supabaseClient
+.auth
+.signOut();
+
+showPublic();
 
 }
+
+}
+
+}
+);
+
+
+/* =========================
+   INICIO
+========================= */
+
+function startApp(){
+
+/*
+   Página pública
+*/
+
+showPublic();
+
+
+/*
+   Mostrar días.
+*/
+
+const today =
+new Date();
+
+selectedDay =
+today.getDay();
+
+renderDays();
+
+
+/*
+   Cargar disponibilidad
+   del día actual.
+*/
+
+selectDay(
+selectedDay
+);
+
+
+/*
+   Si entró directamente
+   a #admin.
+*/
+
+if(
+window.location.hash ===
+"#admin"
+){
+
+initializeAdmin();
+
+}
+
+}
+
+
+/* =========================
+   CAMBIO DE HASH
+========================= */
+
+window.addEventListener(
+"hashchange",
+function(){
+
+if(
+window.location.hash ===
+"#admin"
+){
+
+initializeAdmin();
+
+}else{
+
+showPublic();
 
 }
 
 });
-/* ==================================
-   ADMINISTRACIÓN DE HORARIOS
-================================== */
 
 
-/*
-   Convierte una hora "08:00" en texto
-   fácil de leer.
-*/
+/* =========================
+   INICIAR
+========================= */
 
-function adminTimeLabel(time){
+startApp();
 
-  return String(time)
-    .slice(0,5);
 
-}
-
-
-
-/*
-   Carga todos los horarios del día
-   seleccionado en Administración.
-*/
-
-async function loadAdminSchedule(){
-
-  const date =
-    document.getElementById(
-      "adminDate"
-    ).value;
-
-  const container =
-    document.getElementById(
-      "adminSchedule"
-    );
-
-  if(!date){
-
-    container.innerHTML =
-      "<p class='note'>Selecciona una fecha.</p>";
-
-    return;
-
-  }
-
-
-  const jsDate =
-    new Date(
-      date + "T12:00:00"
-    );
-
-  const day =
-    jsDate.getDay();
-
-
-  /*
-     Domingo:
-     turno exclusivo / VIP.
-  */
-
-  if(day === 0){
-
-    container.innerHTML = `
-
-      <div class="summary">
-
-        <strong>
-          ✨ Domingo · Turno exclusivo / VIP
-        </strong>
-
-        <br><br>
-
-        Los turnos del domingo se coordinan
-        directamente por WhatsApp.
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  const slots =
-    generateSlots(day);
-
-
-  /*
-     Obtener reservas.
-  */
-
-  const bookingsResponse =
-    await supabaseClient
-
-      .from("bookings")
-
-      .select("*")
-
-      .eq(
-        "booking_date",
-        date
-      );
-
-
-  if(bookingsResponse.error){
-
-    console.error(
-      bookingsResponse.error
-    );
-
-  }
-
-
-  const bookings =
-    bookingsResponse.data || [];
-
-
-  /*
-     Obtener horarios cerrados manualmente.
-  */
-
-  const blocksResponse =
-    await supabaseClient
-
-      .from("slot_blocks")
-
-      .select("*")
-
-      .eq(
-        "booking_date",
-        date
-      );
-
-
-  if(blocksResponse.error){
-
-    console.error(
-      blocksResponse.error
-    );
-
-  }
-
-
-  const blocks =
-    blocksResponse.data || [];
-
-
-  container.innerHTML = `
-
-    <div class="summary">
-
-      <strong>
-        ${formatDate(date)}
-      </strong>
-
-      <br>
-
-      Total de horarios:
-      ${slots.length}
-
-    </div>
-
-    <br>
-
-  `;
-
-
-  /*
-     Crear cada horario.
-  */
-
-  slots.forEach(
-    slot => {
-
-      const booking =
-        bookings.find(
-          item =>
-            String(
-              item.booking_time
-            ).slice(0,5) === slot
-            &&
-            (
-              item.status === "confirmed"
-              ||
-              item.status === "blocked"
-            )
-        );
-
-
-      const blocked =
-        blocks.find(
-          item =>
-            String(
-              item.booking_time
-            ).slice(0,5) === slot
-        );
-
-
-      const row =
-        document.createElement(
-          "div"
-        );
-
-
-      row.className =
-        "admin-row";
-
-
-      /*
-         HORARIO RESERVADO
-      */
-
-      if(booking){
-
-        row.innerHTML = `
-
-          <div class="admin-row-top">
-
-            <div>
-
-              <strong>
-                🕐 ${adminTimeLabel(slot)}
-              </strong>
-
-              <br>
-
-              <span class="status booked">
-                RESERVADO
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <br>
-
-          <strong>
-            👤 ${escapeHTML(
-              booking.customer_name || "Sin nombre"
-            )}
-          </strong>
-
-          <br>
-
-          📱 ${escapeHTML(
-            booking.customer_phone || "Sin teléfono"
-          )}
-
-          <br>
-
-          💅 ${
-            Array.isArray(
-              booking.service_ids
-            )
-            ?
-            escapeHTML(
-              booking.service_ids.join(", ")
-            )
-            :
-            escapeHTML(
-              booking.service_ids || "Sin servicio"
-            )
-          }
-
-
-          <div class="admin-actions">
-
-            <button
-              class="btn danger"
-              onclick="cancelBooking('${booking.id}')"
-            >
-              ❌ Cancelar turno
-            </button>
-
-          </div>
-
-        `;
-
-      }
-
-
-      /*
-         HORARIO CERRADO MANUALMENTE
-      */
-
-      else if(blocked){
-
-        row.innerHTML = `
-
-          <div class="admin-row-top">
-
-            <div>
-
-              <strong>
-                🕐 ${adminTimeLabel(slot)}
-              </strong>
-
-              <br>
-
-              <span class="status closed">
-                CERRADO
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="admin-actions">
-
-            <button
-              class="btn success"
-              onclick="openSlot('${date}','${slot}')"
-            >
-              🔓 Volver a abrir
-            </button>
-
-          </div>
-
-        `;
-
-      }
-
-
-      /*
-         HORARIO DISPONIBLE
-      */
-
-      else{
-
-        row.innerHTML = `
-
-          <div class="admin-row-top">
-
-            <div>
-
-              <strong>
-                🕐 ${adminTimeLabel(slot)}
-              </strong>
-
-              <br>
-
-              <span class="status available">
-                DISPONIBLE
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <div class="admin-actions">
-
-            <button
-              class="btn danger"
-              onclick="closeSlot('${date}','${slot}')"
-            >
-              🔒 Cerrar horario
-            </button>
-
-          </div>
-
-        `;
-
-      }
-
-
-      container.appendChild(
-        row
-      );
-
-    }
-  );
-
-}
-
-
-
-/* ==================================
-   SEGURIDAD DE TEXTO
-================================== */
-
-
-function escapeHTML(value){
-
-  return String(value || "")
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
-
-}
-
-
-
-/* ==================================
-   CERRAR HORARIO
-================================== */
-
-
-async function closeSlot(
-  date,
-  time
-){
-
-  const confirmed =
-    confirm(
-      `¿Quieres cerrar el horario de las ${time} del ${formatDate(date)}?`
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  const result =
-    await supabaseClient
-
-      .from("slot_blocks")
-
-      .insert({
-
-        booking_date:
-          date,
-
-        booking_time:
-          time + ":00"
-
-      });
-
-
-  if(result.error){
-
-    console.error(
-      result.error
-    );
-
-    alert(
-      "No se pudo cerrar el horario."
-    );
-
-    return;
-
-  }
-
-
-  await loadAdminSchedule();
-
-}
-
-
-
-/* ==================================
-   VOLVER A ABRIR HORARIO
-================================== */
-
-
-async function openSlot(
-  date,
-  time
-){
-
-  const confirmed =
-    confirm(
-      `¿Quieres volver a abrir el horario de las ${time}?`
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  const result =
-    await supabaseClient
-
-      .from("slot_blocks")
-
-      .delete()
-
-      .eq(
-        "booking_date",
-        date
-      )
-
-      .eq(
-        "booking_time",
-        time + ":00"
-      );
-
-
-  if(result.error){
-
-    console.error(
-      result.error
-    );
-
-    alert(
-      "No se pudo abrir el horario."
-    );
-
-    return;
-
-  }
-
-
-  await loadAdminSchedule();
-
-}
-
-
-
-/* ==================================
-   CANCELAR RESERVA
-================================== */
-
-
-async function cancelBooking(
-  bookingId
-){
-
-  const confirmed =
-    confirm(
-      "¿Seguro que quieres cancelar este turno?"
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  const result =
-    await supabaseClient
-
-      .from("bookings")
-
-      .update({
-
-        status:
-          "cancelled"
-
-      })
-
-      .eq(
-        "id",
-        bookingId
-      );
-
-
-  if(result.error){
-
-    console.error(
-      result.error
-    );
-
-    alert(
-      "No se pudo cancelar el turno."
-    );
-
-    return;
-
-  }
-
-
-  alert(
-    "Turno cancelado correctamente."
-  );
-
-
-  await loadAdminSchedule();
-
-}
-
-
-
-/* ==================================
-   EVITAR ACCESO ADMINISTRATIVO
-   CON UN CORREO NO AUTORIZADO
-================================== */
-
-
-supabaseClient
-  .auth
-  .onAuthStateChange(
-    async function(
-      event,
-      session
-    ){
-
-      if(
-        !session ||
-        !session.user
-      ){
-
-        return;
-
-      }
-
-
-      const email =
-        (
-          session.user.email || ""
-        )
-        .trim()
-        .toLowerCase();
-
-
-      if(
-        !ADMIN_EMAILS.includes(
-          email
-        )
-      ){
-
-        await supabaseClient
-          .auth
-          .signOut();
-
-        return;
-
-      }
-
-    }
-  );
-
-
-
-/* ==================================
-   INICIO DE LA PÁGINA
-================================== */
-
-
-/*
-   Si NO estamos en #admin,
-   mostramos la página pública.
-*/
-
-if(
-  window.location.hash !== "#admin"
-){
-
-  document.getElementById(
-    "publicView"
-  ).style.display =
-    "block";
-
-  document.getElementById(
-    "adminView"
-  ).style.display =
-    "none";
-
-
-  /*
-     Seleccionamos automáticamente
-     el día de hoy.
-  */
-
-  const today =
-    new Date();
-
-  selectDay(
-    today.getDay()
-  );
-
-}
-
-
-
-/* ==================================
-   CAMBIO ENTRE PÁGINA Y ADMIN
-================================== */
-
-
-window.addEventListener(
-  "hashchange",
-  function(){
-
-    if(
-      window.location.hash === "#admin"
-    ){
-
-      initializeAdmin();
-
-    }
-
-    else{
-
-      document.getElementById(
-        "publicView"
-      ).style.display =
-        "block";
-
-      document.getElementById(
-        "adminView"
-      ).style.display =
-        "none";
-
-    }
-
-  }
-);
-
-
-/* ==================================
-   FIN
-================================== */
-  </script>
+</script>
 
 </body>
 
